@@ -107,8 +107,8 @@ export default function MobileNav() {
                         {/* Footer pinned to bottom */}
                         <div className="shrink-0 border-t border-white/10 p-6 pb-12">
                             <div className="flex flex-col space-y-4">
-                                <p className="text-sm text-neutral-500">
-                                    © 2026 K K Dwivedi Photography
+                                <p className="text-sm text-neutral-500 font-medium">
+                                    &copy; 2026 Crafted By <span className="text-white font-semibold">Indigi Consulting pvt ltd</span>
                                 </p>
                             </div>
                         </div>

@@ -69,9 +69,9 @@ export default function Welcome() {
                     rel="stylesheet"
                 />
             </Head>
-            
+
             <Hero />
-            
+
             {/* Intro Quote Section */}
             <section className="py-24 bg-black text-center flex flex-col items-center justify-center border-b border-[#1a1a1a]">
                 <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
@@ -87,11 +87,11 @@ export default function Welcome() {
                 <div className="container mx-auto px-6 lg:px-12">
                     <div className="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
                         <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Portfolio</h2>
-                        
+
                         {/* Filters */}
                         <div className="flex items-center gap-3 overflow-x-auto pb-4 md:pb-0 w-full md:w-auto custom-scrollbar">
                             {['All', 'Birds', 'Wild animals', 'Insect', 'Moth & Butterfly', 'Flora', 'Reptile & Amphibian', 'Landscape'].map((filter, index) => (
-                                <button 
+                                <button
                                     key={filter}
                                     className={`whitespace-nowrap px-6 py-2 rounded-full text-sm font-semibold transition-colors border ${index === 0 ? 'bg-[#E0E0E0] text-black border-[#E0E0E0]' : 'bg-black text-neutral-400 border-neutral-800 hover:border-neutral-500'}`}
                                 >
@@ -100,19 +100,19 @@ export default function Welcome() {
                             ))}
                         </div>
                     </div>
-                    
+
                     {/* Gallery Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {GALLERY_IMAGES.map((src, index) => (
-                            <div 
-                                key={src} 
+                            <div
+                                key={src}
                                 onClick={() => setSelectedIndex(index)}
                                 className="group relative aspect-[4/5] bg-neutral-900 overflow-hidden cursor-pointer"
                             >
-                                <img 
-                                    src={src} 
-                                    alt={`Gallery Item ${index + 1}`} 
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
+                                <img
+                                    src={src}
+                                    alt={`Gallery Item ${index + 1}`}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                                 />
                                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                                     <span className="text-white font-bold tracking-widest uppercase text-sm border-b border-white pb-1">View Image</span>
@@ -126,33 +126,33 @@ export default function Welcome() {
             {/* Lightbox Modal */}
             {mounted && selectedIndex !== null && createPortal(
                 <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md">
-                    <button 
+                    <button
                         onClick={closeModal}
                         className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2 cursor-pointer bg-black/20 rounded-full"
                     >
                         <X className="size-8" />
                     </button>
-                    
-                    <button 
+
+                    <button
                         onClick={(e) => { e.stopPropagation(); showPrev(); }}
                         className="absolute left-4 md:left-8 text-white/30 hover:text-white transition-colors z-50 p-4 cursor-pointer focus:outline-none"
                     >
                         <ChevronLeft className="size-10 md:size-14" />
                     </button>
 
-                    <div 
-                        className="relative w-full h-[100dvh] flex items-center justify-center p-4 md:p-12 cursor-zoom-out" 
+                    <div
+                        className="relative w-full h-[100dvh] flex items-center justify-center p-4 md:p-12 cursor-zoom-out"
                         onClick={closeModal}
                     >
-                        <img 
-                            src={GALLERY_IMAGES[selectedIndex]} 
-                            alt={`Gallery Modal Image`} 
+                        <img
+                            src={GALLERY_IMAGES[selectedIndex]}
+                            alt={`Gallery Modal Image`}
                             className="max-w-full max-h-full object-contain select-none shadow-2xl cursor-default"
-                            onClick={(e) => e.stopPropagation()} 
+                            onClick={(e) => e.stopPropagation()}
                         />
                     </div>
 
-                    <button 
+                    <button
                         onClick={(e) => { e.stopPropagation(); showNext(); }}
                         className="absolute right-4 md:right-8 text-white/30 hover:text-white transition-colors z-50 p-4 cursor-pointer focus:outline-none"
                     >
