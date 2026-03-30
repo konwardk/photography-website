@@ -30,14 +30,17 @@ const IMAGES = [
 
 export default function Hero() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
 
     useEffect(() => {
+        if (isPaused) return;
+
         const timer = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
         }, 2500);
 
         return () => clearInterval(timer);
-    }, []);
+    }, [isPaused]);
 
     const nextImage = () => {
         setCurrentIndex((prev) => (prev + 1) % IMAGES.length);
@@ -66,7 +69,9 @@ export default function Hero() {
             <div className="relative z-20 w-full flex items-center justify-between bg-[#111111]/80 backdrop-blur-md border-t border-white/5 py-0 px-4 mt-auto">
                 <button
                     onClick={prevImage}
-                    className="flex items-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 border-r border-white/5 h-full cursor-pointer hover:bg-white/5"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    className="flex items-center justify-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 w-40 border-r border-white/5 h-full cursor-pointer hover:bg-white/5"
                 >
                     &larr; Previous
                 </button>
@@ -99,7 +104,9 @@ export default function Hero() {
 
                 <button
                     onClick={nextImage}
-                    className="flex items-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 border-l border-white/5 h-full cursor-pointer hover:bg-white/5"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    className="flex items-center justify-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 w-40 border-l border-white/5 h-full cursor-pointer hover:bg-white/5"
                 >
                     Next &rarr;
                 </button>

@@ -18,10 +18,10 @@ export default function NavBar() {
     return (
         <header
             className={cn(
-                'fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-4xl z-50 transition-all duration-300 rounded-full border border-white/10 backdrop-blur-md',
+                'fixed z-50 transition-all duration-500 ease-in-out backdrop-blur-md',
                 isScrolled
-                    ? 'bg-black/90 py-1.5 shadow-2xl'
-                    : 'bg-black/60 py-2.5 shadow-xl'
+                    ? 'top-0 inset-x-0 mx-auto w-full max-w-full bg-neutral-700/95 py-1.5 shadow-2xl rounded-none border border-transparent border-b-white/10'
+                    : 'top-4 inset-x-0 mx-auto w-[85%] max-w-3xl bg-black/60 py-1.5 shadow-xl rounded-full border border-white/10'
             )}
         >
             <div className="px-5 md:px-6 flex items-center justify-between w-full">
