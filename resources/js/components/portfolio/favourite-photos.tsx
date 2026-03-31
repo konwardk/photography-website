@@ -38,7 +38,7 @@ export default function FavouritePhotos({ photos }: { photos: any[] }) {
     if (!photos || photos.length === 0) return null;
 
     return (
-        <section className="py-15 bg-black">
+        <section className="py-3 bg-black">
             <div className="container mx-auto px-6 lg:px-12">
                 <div className="flex flex-col items-center mb-16">
                     <div className="h-1 w-12 bg-[#E0E0E0]"></div>

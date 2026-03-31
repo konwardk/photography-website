@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Head, useForm, router } from '@inertiajs/react';
+import { Head, useForm, router, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -95,6 +95,12 @@ export default function CategoriesIndex({ categories }: { categories: any[] }) {
                                     </span>
                                 </td>
                                 <td className="px-6 py-4 text-right space-x-4">
+                                    <Link 
+                                        href={`/admin/photos/category/${cat.id}`}
+                                        className="text-blue-500 hover:text-blue-700 font-semibold transition-colors uppercase tracking-widest text-xs"
+                                    >
+                                        View Photos
+                                    </Link>
                                     <button 
                                         onClick={() => openEdit(cat)}
                                         className="text-neutral-500 hover:text-neutral-900 font-semibold transition-colors uppercase tracking-widest text-xs"

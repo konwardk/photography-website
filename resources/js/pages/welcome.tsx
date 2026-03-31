@@ -20,13 +20,12 @@ export default function Welcome({ carouselPhotos, favouritePhotos }: { carouselP
             {/* Intro Quote Section */}
             <section className="py-24 bg-black text-center flex flex-col items-center justify-center border-b border-[#1a1a1a]">
                 <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-                    <p className="text-neutral-400 text-lg md:text-xl font-medium leading-relaxed italic mb-12">
+                    <p className="text-neutral-400 text-lg md:text-xl font-medium leading-relaxed italic mb-6">
                         "While the eye believes it has seen everything before it, the photograph quietly reveals how much was left unnoticed — the fleeting expressions, the silent emotions, the unnoticed details that only time and stillness allow us to truly understand."
                     </p>
-                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">Few Captured Moments, Timeless Stories</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white">Few Captured Moments, Timeless Stories</h2>
                 </div>
             </section>
-
             {/* Favourite Photos Section */}
             <FavouritePhotos photos={favouritePhotos} />
         </PortfolioLayout>

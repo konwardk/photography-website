@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Head, useForm, router } from '@inertiajs/react';
+import { Head, useForm, router, Link } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import InputError from '@/components/input-error';
 
-export default function PhotosIndex({ photos, categories }: { photos: any[], categories: any[] }) {
+export default function PhotosIndex({ photos, categories, selected_category }: { photos: any[], categories: any[], selected_category?: any }) {
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
     const [editPhoto, setEditPhoto] = useState<any>(null);
 
@@ -71,8 +71,19 @@ export default function PhotosIndex({ photos, categories }: { photos: any[], cat
             
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold tracking-tight text-neutral-900">Manage Photos</h1>
-                    <p className="text-sm text-neutral-500 mt-1">Upload and strictly organize images across your portfolio.</p>
+                    <h1 className="text-2xl font-bold tracking-tight text-neutral-900">
+                        {selected_category ? `Photos: ${selected_category.category_name}` : 'Manage Photos'}
+                    </h1>
+                    <p className="text-sm text-neutral-500 mt-1">
+                        {selected_category 
+                            ? `Showing all photos in the "${selected_category.category_name}" category.`
+                            : 'Upload and strictly organize images across your portfolio.'}
+                        {selected_category && (
+                            <Link href="/admin/photos" className="ml-2 text-blue-600 hover:underline text-xs font-medium">
+                                Clear Filter
+                            </Link>
+                        )}
+                    </p>
                 </div>
                 {categories.length === 0 ? (
                     <Button disabled className="bg-neutral-400 text-white cursor-not-allowed shadow-sm">

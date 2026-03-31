@@ -10,11 +10,12 @@ Route::get('/', [PublicViewController::class, 'index'])->name('home');
 Route::get('/portfolio', [PublicViewController::class, 'portfolio'])->name('portfolio');
 Route::inertia('/about', 'publicView/about')->name('about');
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PhotoCategoryController;
 use App\Http\Controllers\Admin\PhotoController;
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::inertia('/dashboard', 'dashboard')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     // Photo Categories
     Route::get('/admin/categories', [PhotoCategoryController::class, 'index'])->name('admin.categories.index');
@@ -24,6 +25,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Photos
     Route::get('/admin/photos', [PhotoController::class, 'index'])->name('admin.photos.index');
+    Route::get('/admin/photos/category/{category}', [PhotoController::class, 'showByCategory'])->name('admin.photos.category');
     Route::post('/admin/photos', [PhotoController::class, 'store'])->name('admin.photos.store');
     Route::put('/admin/photos/{photo}', [PhotoController::class, 'update'])->name('admin.photos.update');
     Route::delete('/admin/photos/{photo}', [PhotoController::class, 'destroy'])->name('admin.photos.destroy');

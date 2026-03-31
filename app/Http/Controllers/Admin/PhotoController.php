@@ -22,6 +22,18 @@ class PhotoController extends Controller
         ]);
     }
 
+    public function showByCategory(PhotoCategory $category)
+    {
+        $photos = Photo::where('category_id', $category->id)->with('category')->latest()->get();
+        $categories = PhotoCategory::orderBy('category_name')->get();
+
+        return inertia('admin/photos/index', [
+            'photos' => $photos,
+            'categories' => $categories,
+            'selected_category' => $category
+        ]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([

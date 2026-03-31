@@ -1,9 +1,14 @@
 import { Link } from '@inertiajs/react';
 import { Camera } from 'lucide-react';
 
-export default function Logo() {
+interface LogoProps {
+    href?: string;
+    className?: string;
+}
+
+export default function Logo({ href = '/', className = '' }: LogoProps) {
     return (
-        <Link href="/" className="flex items-center gap-1 md:gap-2 group transition-all duration-300">
+        <Link href={href} className={`flex items-center gap-1 md:gap-2 group transition-all duration-300 ${className}`}>
             <div className="flex size-12 md:size-16 items-center justify-center mb-[0.5px]">
                 {/* <Camera className="size-5" /> */}
                 <img src="/images/camera.png" alt="Logo" className="w-full h-full object-contain" />
