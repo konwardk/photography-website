@@ -13,8 +13,8 @@ export default function Footer() {
                     </div>
                     <div className="flex items-center gap-8 text-sm font-medium text-neutral-500">
                         <a href="#" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">Instagram</a>
-                        <a href="#" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">Twitter</a>
-                        <a href="#" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">LinkedIn</a>
+                        <a href="#" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">Facebook</a>
+                        <a href="https://in.linkedin.com/in/dr-k-k-dwivedi-7b4112146" target="__blank" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-0.5">LinkedIn</a>
                     </div>
                     <p className="text-sm text-neutral-500 font-medium">
                         &copy; 2026 Crafted By <span className="text-white font-semibold">Indigi Consulting pvt ltd</span>

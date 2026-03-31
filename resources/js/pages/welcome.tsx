@@ -1,8 +1,9 @@
 import { Head } from '@inertiajs/react';
 import PortfolioLayout from '@/layouts/portfolio-layout';
 import { Hero } from '@/components/portfolio/hero';
+import FavouritePhotos from '@/components/portfolio/favourite-photos';
 
-export default function Welcome() {
+export default function Welcome({ carouselPhotos, favouritePhotos }: { carouselPhotos: any[], favouritePhotos: any[] }) {
     return (
         <PortfolioLayout>
             <Head title="K K Dwivedi | Photography Portfolio">
@@ -14,7 +15,7 @@ export default function Welcome() {
                 />
             </Head>
 
-            <Hero />
+            <Hero photos={carouselPhotos} />
 
             {/* Intro Quote Section */}
             <section className="py-24 bg-black text-center flex flex-col items-center justify-center border-b border-[#1a1a1a]">
@@ -25,6 +26,9 @@ export default function Welcome() {
                     <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">Few Captured Moments, Timeless Stories</h2>
                 </div>
             </section>
+
+            {/* Favourite Photos Section */}
+            <FavouritePhotos photos={favouritePhotos} />
         </PortfolioLayout>
     );
 }

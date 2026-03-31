@@ -3,11 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
-Route::inertia('/', 'welcome', [
-    'canRegister' => Features::enabled(Features::registration()),
-])->name('home');
-
 use App\Http\Controllers\PublicViewController;
+
+Route::get('/', [PublicViewController::class, 'index'])->name('home');
 
 Route::get('/portfolio', [PublicViewController::class, 'portfolio'])->name('portfolio');
 Route::inertia('/about', 'publicView/about')->name('about');

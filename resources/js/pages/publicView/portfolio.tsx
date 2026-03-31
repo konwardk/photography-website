@@ -1,5 +1,5 @@
 import { Head } from '@inertiajs/react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import PortfolioLayout from '@/layouts/portfolio-layout';
@@ -65,10 +65,10 @@ export default function Portfolio({ categories, photos }: { categories: any[]; p
             <Head title="Portfolio | K K Dwivedi" />
 
             {/* Portfolio Grid Section */}
-            <section className="py-24 pt-32 bg-black min-h-[100dvh]">
+            <section className="py-12 pt-18 bg-black min-h-[100dvh]">
                 <div className="container mx-auto px-6 lg:px-12">
-                    <div className="flex flex-col md:flex-row justify-between items-baseline md:items-center mb-16 gap-8">
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white shrink-0">Portfolio</h2>
+                    <h2 className="text-4xl m-3 md:text-5xl font-bold text-center tracking-tight text-white shrink-0">Portfolio</h2>
+                    <div className="flex flex-col md:flex-row justify-center items-baseline md:items-center mb-16 gap-8">
 
                         {/* Dropdown Filters mapped dynamically from database */}
                         <div className="flex items-center gap-3 overflow-x-auto pb-4 md:pb-0 w-full md:w-auto custom-scrollbar">
@@ -130,7 +130,7 @@ export default function Portfolio({ categories, photos }: { categories: any[]; p
                     {displayedPhotos.length > 1 && (
                         <button
                             onClick={(e) => { e.stopPropagation(); showPrev(); }}
-                            className="absolute left-4 md:left-8 text-white/30 hover:text-white transition-colors z-50 p-4 cursor-pointer focus:outline-none"
+                            className="absolute left-4 md:left-8 text-white/70 hover:text-white transition-colors z-50 p-4 cursor-pointer focus:outline-none"
                         >
                             <ChevronLeft className="size-10 md:size-14" />
                         </button>
@@ -151,7 +151,7 @@ export default function Portfolio({ categories, photos }: { categories: any[]; p
                     {displayedPhotos.length > 1 && (
                         <button
                             onClick={(e) => { e.stopPropagation(); showNext(); }}
-                            className="absolute right-4 md:right-8 text-white/30 hover:text-white transition-colors z-50 p-4 cursor-pointer focus:outline-none"
+                            className="absolute right-4 md:right-8 text-white/70 hover:text-white transition-colors z-50 p-4 cursor-pointer focus:outline-none"
                         >
                             <ChevronRight className="size-10 md:size-14" />
                         </button>

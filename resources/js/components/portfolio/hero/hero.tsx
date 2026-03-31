@@ -28,33 +28,42 @@ const IMAGES = [
     }
 ];
 
-export default function Hero() {
+export default function Hero({ photos = [] }: { photos?: any[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
 
+    // Map database photos to the carousel format if available
+    const carouselItems = photos.length > 0 
+        ? photos.map(p => ({
+            src: `/storage/${p.path}`,
+            thumb: `/storage/${p.path}`,
+            alt: `Portfolio Work ${p.id}`
+        })) 
+        : IMAGES;
+
     useEffect(() => {
-        if (isPaused) return;
+        if (isPaused || carouselItems.length <= 1) return;
 
         const timer = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
         }, 2500);
 
         return () => clearInterval(timer);
-    }, [isPaused]);
+    }, [isPaused, carouselItems.length]);
 
     const nextImage = () => {
-        setCurrentIndex((prev) => (prev + 1) % IMAGES.length);
+        setCurrentIndex((prev) => (prev + 1) % carouselItems.length);
     };
 
     const prevImage = () => {
-        setCurrentIndex((prev) => (prev === 0 ? IMAGES.length - 1 : prev - 1));
+        setCurrentIndex((prev) => (prev === 0 ? carouselItems.length - 1 : prev - 1));
     };
 
     return (
         <section className="relative h-[100dvh] -mt-32 w-full flex flex-col justify-end overflow-hidden bg-black text-white">
             {/* Background Image Carousel */}
             <div className="absolute inset-0 z-0 w-full h-full">
-                {IMAGES.map((image, index) => (
+                {carouselItems.map((image, index) => (
                     <img
                         key={index}
                         src={image.src}
@@ -67,25 +76,27 @@ export default function Hero() {
 
             {/* Thumbnail Controls Strip */}
             <div className="relative z-20 w-full flex items-center justify-between bg-[#111111]/80 backdrop-blur-md border-t border-white/5 py-0 px-4 mt-auto">
-                <button
-                    onClick={prevImage}
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                    className="flex items-center justify-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 w-40 border-r border-white/5 h-full cursor-pointer hover:bg-white/5"
-                >
-                    &larr; Previous
-                </button>
+                {carouselItems.length > 1 && (
+                    <button
+                        onClick={prevImage}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                        className="flex items-center justify-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 w-40 border-r border-white/5 h-full cursor-pointer hover:bg-white/5"
+                    >
+                        &larr; Previous
+                    </button>
+                )}
 
                 {/* Thumbnails */}
                 <div className="hidden md:flex items-center h-full flex-1 overflow-hidden">
                     <div className="flex w-full">
-                        {IMAGES.map((image, index) => (
+                        {carouselItems.map((image, index) => (
                             <div
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
                                 className={`h-24 flex-1 transition-all duration-500 border-r border-white/5 relative bg-black cursor-pointer overflow-hidden group ${index === currentIndex
                                     ? 'opacity-100 flex-[1.5]'
-                                    : 'opacity-50 hover:opacity-100'
+                                    : 'opacity-100 hover:opacity-100'
                                     }`}
                             >
                                 <img
@@ -102,14 +113,16 @@ export default function Hero() {
                     </div>
                 </div>
 
-                <button
-                    onClick={nextImage}
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
-                    className="flex items-center justify-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 w-40 border-l border-white/5 h-full cursor-pointer hover:bg-white/5"
-                >
-                    Next &rarr;
-                </button>
+                {carouselItems.length > 1 && (
+                    <button
+                        onClick={nextImage}
+                        onMouseEnter={() => setIsPaused(true)}
+                        onMouseLeave={() => setIsPaused(false)}
+                        className="flex items-center justify-center gap-2 text-white hover:text-neutral-300 transition-colors uppercase text-sm font-medium px-6 py-6 w-40 border-l border-white/5 h-full cursor-pointer hover:bg-white/5"
+                    >
+                        Next &rarr;
+                    </button>
+                )}
             </div>
         </section>
     );

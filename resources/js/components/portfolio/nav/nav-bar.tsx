@@ -20,8 +20,8 @@ export default function NavBar() {
             className={cn(
                 'fixed z-50 transition-all duration-500 ease-in-out backdrop-blur-md',
                 isScrolled
-                    ? 'top-0 inset-x-0 mx-auto w-full max-w-full bg-neutral-700/95 py-1.5 shadow-2xl rounded-none border border-transparent border-b-white/10'
-                    : 'top-4 inset-x-0 mx-auto w-[85%] max-w-3xl bg-black/60 py-1.5 shadow-xl rounded-full border border-white/10'
+                    ? 'top-0 inset-x-0 mx-auto w-full max-w-full bg-neutral-700/95 shadow-2xl rounded-none border border-transparent border-b-white/10'
+                    : 'top-4 inset-x-0 mx-auto w-[85%] max-w-3xl bg-neutral-700/95 shadow-xl rounded-full border border-white/10'
             )}
         >
             <div className="px-5 md:px-6 flex items-center justify-between w-full">
