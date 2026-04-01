@@ -10,8 +10,8 @@ export default function Portfolio({ categories, photos }: { categories: any[]; p
     const [mounted, setMounted] = useState(false);
 
     // Filter photos natively based on selection button
-    const displayedPhotos = selectedCategory === 'All' 
-        ? photos 
+    const displayedPhotos = selectedCategory === 'All'
+        ? photos
         : photos.filter(p => p.category_id === selectedCategory);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function Portfolio({ categories, photos }: { categories: any[]; p
         const handleKeyDown = (e: KeyboardEvent) => {
             if (selectedIndex === null) return;
             if (e.key === 'Escape') setSelectedIndex(null);
-            
+
             // Recompute boundary logic directly in effect to guarantee fresh state mapping.
             if (e.key === 'ArrowLeft') {
                 setSelectedIndex((prev) => (prev === 0 ? displayedPhotos.length - 1 : prev! - 1));
@@ -65,19 +65,19 @@ export default function Portfolio({ categories, photos }: { categories: any[]; p
             <Head title="Portfolio | K K Dwivedi" />
 
             {/* Portfolio Grid Section */}
-            <section className="py-12 pt-18 bg-black min-h-[100dvh]">
+            <section className="pt-16 px-5 md:px-12 w-full max-w-[100rem] mx-auto min-h-screen">
                 <div className="container mx-auto px-6 lg:px-12">
                     <h2 className="text-4xl m-3 md:text-5xl font-bold text-center tracking-tight text-white shrink-0">Portfolio</h2>
                     <div className="flex flex-col md:flex-row justify-center items-baseline md:items-center mb-16 gap-8">
 
                         {/* Dropdown Filters mapped dynamically from database */}
                         <div className="flex items-center gap-3 overflow-x-auto pb-4 md:pb-0 w-full md:w-auto custom-scrollbar">
-                           <button
-                               onClick={() => setSelectedCategory('All')}
-                               className={`whitespace-nowrap px-6 py-2 rounded-full text-sm font-semibold transition-colors border ${selectedCategory === 'All' ? 'bg-[#E0E0E0] text-black border-[#E0E0E0]' : 'bg-black text-neutral-400 border-neutral-800 hover:border-neutral-500'}`}
-                           >
-                               All
-                           </button>
+                            <button
+                                onClick={() => setSelectedCategory('All')}
+                                className={`whitespace-nowrap px-6 py-2 rounded-full text-sm font-semibold transition-colors border ${selectedCategory === 'All' ? 'bg-[#E0E0E0] text-black border-[#E0E0E0]' : 'bg-black text-neutral-400 border-neutral-800 hover:border-neutral-500'}`}
+                            >
+                                All
+                            </button>
                             {categories.map((cat) => (
                                 <button
                                     key={cat.id}
