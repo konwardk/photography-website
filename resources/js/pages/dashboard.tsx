@@ -3,6 +3,7 @@ import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import { dashboard } from '@/routes';
 import { index as adminCategoriesIndex } from '@/routes/admin/categories/index';
 import { index as adminPhotosIndex } from '@/routes/admin/photos/index';
+import { index as adminBlogsIndex } from '@/routes/admin/blogs/index';
 import { Head, Link } from '@inertiajs/react';
 import { BookOpen, Folder, Image, MessageSquare } from 'lucide-react';
 
@@ -40,7 +41,7 @@ export default function Dashboard({ stats }: Props) {
             description: 'Write and manage blog posts',
             icon: MessageSquare,
             count: stats.blogs,
-            href: '#',
+            href: adminBlogsIndex(),
             color: 'text-emerald-600 dark:text-emerald-400',
         },
         {

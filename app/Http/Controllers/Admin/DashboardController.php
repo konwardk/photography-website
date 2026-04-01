@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
 use App\Models\PhotoCategory;
+use App\Models\Blog;
 use Inertia\Inertia;
 
 class DashboardController extends Controller
@@ -15,7 +16,7 @@ class DashboardController extends Controller
             'stats' => [
                 'categories' => PhotoCategory::count(),
                 'photos' => Photo::count(),
-                'blogs' => 0, // Placeholder
+                'blogs' => Blog::count(),
                 'book_reviews' => 0, // Placeholder
             ]
         ]);

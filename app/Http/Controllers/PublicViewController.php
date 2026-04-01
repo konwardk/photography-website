@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Photo;
 use App\Models\PhotoCategory;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class PublicViewController extends Controller
@@ -44,6 +45,22 @@ class PublicViewController extends Controller
         return inertia('publicView/portfolio', [
             'categories' => $categories,
             'photos' => $photos,
+        ]);
+    }
+
+    public function blogs()
+    {
+        $blogs = Blog::latest()->paginate(9);
+
+        return inertia('publicView/blogs', [
+            'blogs' => $blogs,
+        ]);
+    }
+
+    public function showBlog(Blog $blog)
+    {
+        return inertia('publicView/blog-show', [
+            'blog' => $blog,
         ]);
     }
 }

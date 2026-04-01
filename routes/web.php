@@ -9,10 +9,13 @@ Route::get('/', [PublicViewController::class, 'index'])->name('home');
 
 Route::get('/portfolio', [PublicViewController::class, 'portfolio'])->name('portfolio');
 Route::inertia('/about', 'publicView/about')->name('about');
+Route::get('/blog', [PublicViewController::class, 'blogs'])->name('blog.index');
+Route::get('/blog/{blog}', [PublicViewController::class, 'showBlog'])->name('blog.show');
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PhotoCategoryController;
 use App\Http\Controllers\Admin\PhotoController;
+use App\Http\Controllers\Admin\BlogController;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -29,6 +32,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/admin/photos', [PhotoController::class, 'store'])->name('admin.photos.store');
     Route::put('/admin/photos/{photo}', [PhotoController::class, 'update'])->name('admin.photos.update');
     Route::delete('/admin/photos/{photo}', [PhotoController::class, 'destroy'])->name('admin.photos.destroy');
+
+    // Blogs
+    Route::resource('/admin/blogs', BlogController::class, [
+        'names' => 'admin.blogs',
+        'except' => ['show']
+    ]);
 });
 
 require __DIR__.'/settings.php';

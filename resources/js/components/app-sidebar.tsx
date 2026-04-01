@@ -1,4 +1,4 @@
-import { BookOpen, FolderGit2, LayoutGrid, Folder, Image } from 'lucide-react';
+import { BookOpen, FolderGit2, LayoutGrid, Folder, Image, FileText } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -30,6 +30,11 @@ const mainNavItems: NavItem[] = [
         title: 'Manage Photos',
         href: '/admin/photos',
         icon: Image,
+    },
+    {
+        title: 'Manage Blogs',
+        href: '/admin/blogs',
+        icon: FileText,
     },
 ];
 

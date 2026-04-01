@@ -24,7 +24,7 @@ export default function NavBar() {
                     : 'top-4 inset-x-0 mx-auto w-[85%] max-w-3xl bg-neutral-700/95 shadow-xl rounded-full border border-white/10'
             )}
         >
-            <div className="px-5 md:px-6 flex items-center justify-between w-full">
+            <div className="px-12 md:px-12 flex items-center justify-between w-full">
                 <div className="flex items-center gap-3">
                     <div className="md:hidden flex items-center">
                         <MobileNav />
