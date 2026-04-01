@@ -1,6 +1,8 @@
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
+
 export default function Footer() {
     return (
-        <footer className="border-t border-white/5 bg-black py-8">
+        <footer className="border-t border-white bg-black py-8">
             <div className="container mx-auto px-6 lg:px-12">
                 <div className="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left">
                     <div className="group flex cursor-pointer flex-col items-center md:items-start">
@@ -11,26 +13,29 @@ export default function Footer() {
                             Photography
                         </span>
                     </div>
-                    <div className="flex items-center gap-8 text-sm font-medium text-neutral-500">
+                    <div className="flex items-center gap-8 text-neutral-500">
                         <a
                             href="https://www.instagram.com/drkkdwivedi/"
                             target="__blank"
-                            className="border-b border-transparent pb-0.5 transition-colors hover:border-white hover:text-white"
+                            className="transition-colors hover:text-white"
+                            aria-label="Instagram"
                         >
-                            Instagram
+                            <Instagram className="h-6 w-6" />
                         </a>
                         <a
                             href="#"
-                            className="border-b border-transparent pb-0.5 transition-colors hover:border-white hover:text-white"
+                            className="transition-colors hover:text-white"
+                            aria-label="Facebook"
                         >
-                            Facebook
+                            <Facebook className="h-6 w-6" />
                         </a>
                         <a
                             href="https://in.linkedin.com/in/dr-k-k-dwivedi-7b4112146"
                             target="__blank"
-                            className="border-b border-transparent pb-0.5 transition-colors hover:border-white hover:text-white"
+                            className="transition-colors hover:text-white"
+                            aria-label="LinkedIn"
                         >
-                            LinkedIn
+                            <Linkedin className="h-6 w-6" />
                         </a>
                     </div>
                     <p className="text-sm font-medium text-neutral-500">

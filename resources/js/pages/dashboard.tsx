@@ -1,9 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
 import { dashboard } from '@/routes';
-import { index as adminCategoriesIndex } from '@/routes/admin/categories/index';
-import { index as adminPhotosIndex } from '@/routes/admin/photos/index';
-import { index as adminBlogsIndex } from '@/routes/admin/blogs/index';
 import { Head, Link } from '@inertiajs/react';
 import { BookOpen, Folder, Image, MessageSquare } from 'lucide-react';
 
@@ -25,7 +22,7 @@ export default function Dashboard({ stats }: Props) {
             description: 'Manage photo categories',
             icon: Folder,
             count: stats.categories,
-            href: adminCategoriesIndex(),
+            href: '/admin/categories',
             color: 'text-blue-600 dark:text-blue-400',
         },
         {
@@ -33,7 +30,7 @@ export default function Dashboard({ stats }: Props) {
             description: 'Manage your photography collection',
             icon: Image,
             count: stats.photos,
-            href: adminPhotosIndex(),
+            href: '/admin/photos',
             color: 'text-indigo-600 dark:text-indigo-400',
         },
         {
@@ -41,7 +38,7 @@ export default function Dashboard({ stats }: Props) {
             description: 'Write and manage blog posts',
             icon: MessageSquare,
             count: stats.blogs,
-            href: adminBlogsIndex(),
+            href: '/admin/blogs',
             color: 'text-emerald-600 dark:text-emerald-400',
         },
         {
@@ -49,7 +46,7 @@ export default function Dashboard({ stats }: Props) {
             description: 'Share your thoughts on books',
             icon: BookOpen,
             count: stats.book_reviews,
-            href: '#',
+            href: '/admin/books',
             color: 'text-orange-600 dark:text-orange-400',
         },
     ];

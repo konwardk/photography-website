@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Photo;
 use App\Models\PhotoCategory;
 use App\Models\Blog;
+use App\Models\Book;
 use Inertia\Inertia;
 
 class DashboardController extends Controller
@@ -17,7 +18,7 @@ class DashboardController extends Controller
                 'categories' => PhotoCategory::count(),
                 'photos' => Photo::count(),
                 'blogs' => Blog::count(),
-                'book_reviews' => 0, // Placeholder
+                'book_reviews' => Book::count(),
             ]
         ]);
     }

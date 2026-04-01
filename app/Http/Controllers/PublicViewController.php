@@ -63,4 +63,22 @@ class PublicViewController extends Controller
             'blog' => $blog,
         ]);
     }
+
+    public function books()
+    {
+        $books = \App\Models\Book::latest()->paginate(9);
+
+        return inertia('publicView/books', [
+            'books' => $books,
+        ]);
+    }
+
+    public function showBook(\App\Models\Book $book)
+    {
+        $book->load('reviews');
+        
+        return inertia('publicView/book-show', [
+            'book' => $book,
+        ]);
+    }
 }
