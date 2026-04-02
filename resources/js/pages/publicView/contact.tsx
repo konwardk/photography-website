@@ -33,9 +33,64 @@ export default function Contact() {
                         Contact
                     </h1>
 
-                    <div className="grid w-full grid-cols-1 gap-8 rounded-[2rem] bg-zinc-900 p-8 md:grid-cols-2 md:gap-12 md:p-12">
-                        {/* Form Side */}
-                        {/* <div className="flex flex-col justify-center">
+                    <div className="grid w-full grid-cols-1 gap-8 rounded-[2rem] bg-zinc-900 p-8 md:min-h-[520px] md:grid-cols-2 md:gap-12 md:p-12 lg:min-h-[600px]">
+                        {/* Contact Info Side */}
+                        <div className="flex flex-col justify-center">
+                            <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">
+                                Let's connect
+                            </h2>
+
+                            <p className="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
+                                Whether you have a project in mind, want to
+                                collaborate, or simply wish to get in touch,
+                                feel free to reach out. I’m always open to
+                                meaningful conversations and creative
+                                opportunities.
+                            </p>
+
+                            {/* Email */}
+                            <div className="rounded-xl border border-zinc-800 bg-black/30 p-4">
+                                <p className="mb-2 text-xs tracking-widest text-neutral-500 uppercase">
+                                    Email
+                                </p>
+
+                                <a
+                                    href="mailto:your@email.com"
+                                    className="text-lg font-semibold break-all text-white transition-colors hover:text-neutral-300 md:text-xl"
+                                >
+                                    your@email.com
+                                </a>
+                            </div>
+                        </div>
+
+                        {/* Image Side */}
+                        <div className="relative h-[400px] w-full overflow-hidden rounded-2xl md:h-auto md:min-h-[520px] lg:min-h-[600px]">
+                            {' '}
+                            {IMAGES.map((src, index) => (
+                                <img
+                                    key={src}
+                                    src={src}
+                                    alt={`Gallery image ${index + 1}`}
+                                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+                                        index === currentImageIndex
+                                            ? 'opacity-100'
+                                            : 'opacity-0'
+                                    }`}
+                                    draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
+                                />
+                            ))}
+                            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-80"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </PortfolioLayout>
+    );
+}
+
+{
+    /* <div className="flex flex-col justify-center">
                             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Let's connect</h2>
 
                             <form className="space-y-4">
@@ -77,58 +132,5 @@ export default function Contact() {
                                     Send
                                 </button>
                             </form>
-                        </div> */}
-
-                        {/* Contact Info Side */}
-                        <div className="flex flex-col justify-center">
-                            <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">
-                                Let's connect
-                            </h2>
-
-                            <p className="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
-                                Whether you have a project in mind, want to
-                                collaborate, or simply wish to get in touch,
-                                feel free to reach out. I’m always open to
-                                meaningful conversations and creative
-                                opportunities.
-                            </p>
-
-                            {/* Email */}
-                            <div className="rounded-xl border border-zinc-800 bg-black/30 p-4">
-                                <p className="mb-2 text-xs tracking-widest text-neutral-500 uppercase">
-                                    Email
-                                </p>
-
-                                <a
-                                    href="mailto:your@email.com"
-                                    className="text-lg font-semibold break-all text-white transition-colors hover:text-neutral-300 md:text-xl"
-                                >
-                                    your@email.com
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Image Side */}
-                        <div className="relative h-full min-h-[400px] w-full overflow-hidden rounded-2xl md:min-h-full">
-                            {IMAGES.map((src, index) => (
-                                <img
-                                    key={src}
-                                    src={src}
-                                    alt={`Gallery image ${index + 1}`}
-                                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
-                                        index === currentImageIndex
-                                            ? 'opacity-100'
-                                            : 'opacity-0'
-                                    }`}
-                                    draggable={false}
-                                    onContextMenu={(e) => e.preventDefault()}
-                                />
-                            ))}
-                            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-80"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </PortfolioLayout>
-    );
+                        </div> */
 }
