@@ -9,17 +9,8 @@ interface LogoProps {
 export default function Logo({ href = '/', className = '' }: LogoProps) {
     return (
         <Link href={href} className={`flex items-center gap-1 md:gap-2 group transition-all duration-300 ${className}`}>
-            <div className="flex size-12 md:size-16 items-center justify-center mb-[0.5px]">
-                {/* <Camera className="size-5" /> */}
-                <img src="/images/camera.png" alt="Logo" className="w-full h-full object-contain" />
-            </div>
-            <div className="flex flex-col">
-                <span className="text-lg md:text-2xl font-bold tracking-tight leading-none text-white uppercase mt-0.5">
-                    K K Dwivedi
-                </span>
-                <span className="text-[7px] md:text-[9px] uppercase tracking-[0.3em] font-medium text-neutral-400 mt-1">
-                    Photography
-                </span>
+            <div className="flex items-center justify-center">
+                <img src="/images/logo.svg" alt="Logo" className="w-full h-full object-contain size-22 m-2"/>
             </div>
         </Link>
     );

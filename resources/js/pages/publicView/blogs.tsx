@@ -7,9 +7,9 @@ export default function Blogs({ blogs }: { blogs: any }) {
             <Head title="Journal & Blog" />
 
             <div className="mx-auto min-h-screen w-full max-w-[100rem] px-5 pt-16 md:px-12">
-                <div className="mb-16 flex flex-col items-center justify-center">
+                <div className="mb-20 flex flex-col items-center justify-center">
                     <h1 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
-                        Journal
+                        Blogs
                     </h1>
                     <p className="max-w-2xl text-lg font-light text-neutral-400">
                         Stories, articles, and behind-the-scenes thoughts on my
@@ -29,7 +29,7 @@ export default function Blogs({ blogs }: { blogs: any }) {
                             <Link
                                 href={`/blog/${blog.id}`}
                                 key={blog.id}
-                                className="group block overflow-hidden rounded-2xl bg-neutral-900 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
+                                className="group block overflow-hidden bg-neutral-900 transition-all duration-500 hover:-translate-y-2 hover:shadow-xl"
                             >
                                 {/* Image Wrapper (Fixed Size) */}
                                 <div className="relative aspect-[4/3] w-full overflow-hidden">

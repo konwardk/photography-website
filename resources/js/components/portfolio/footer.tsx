@@ -13,7 +13,18 @@ export default function Footer() {
                             Photography
                         </span>
                     </div>
-                    <div className="flex items-center gap-8 text-neutral-500">
+                    <p className="text-sm font-medium text-neutral-500">
+                        &copy; 2026 Crafted By{' '}
+                        <a
+                            href="http://indigiconsulting.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold text-white hover:underline"
+                        >
+                            Indigi Consulting & Solutions pvt ltd
+                        </a>
+                    </p>
+                    <div className="flex items-center gap-1 text-neutral-500">
                         <a
                             href="https://www.instagram.com/drkkdwivedi/"
                             target="__blank"
@@ -38,17 +49,6 @@ export default function Footer() {
                             <Linkedin className="h-6 w-6" />
                         </a>
                     </div>
-                    <p className="text-sm font-medium text-neutral-500">
-                        &copy; 2026 Crafted By{' '}
-                        <a
-                            href="http://indigiconsulting.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-semibold text-white hover:underline"
-                        >
-                            Indigi Consulting & Solutions pvt ltd
-                        </a>
-                    </p>
                 </div>
             </div>
         </footer>

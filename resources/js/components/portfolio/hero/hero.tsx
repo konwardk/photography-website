@@ -60,7 +60,7 @@ export default function Hero({ photos = [] }: { photos?: any[] }) {
     };
 
     return (
-        <section className="relative h-[100dvh] -mt-32 w-full flex flex-col justify-end overflow-hidden bg-black text-white">
+        <section className="relative h-[100dvh] -mt-10 w-full flex flex-col justify-end overflow-hidden bg-black text-white">
             {/* Background Image Carousel */}
             <div className="absolute inset-0 z-0 w-full h-full">
                 {carouselItems.map((image, index) => (

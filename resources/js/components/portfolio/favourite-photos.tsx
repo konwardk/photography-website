@@ -49,7 +49,7 @@ export default function FavouritePhotos({ photos }: { photos: any[] }) {
                         <div
                             key={photo.id}
                             onClick={() => setSelectedIndex(index)}
-                            className="group relative aspect-square bg-neutral-900 overflow-hidden cursor-pointer rounded-sm"
+                            className="group relative aspect-square bg-neutral-900 overflow-hidden cursor-pointer"
                         >
                             <img
                                 src={`/storage/${photo.path}`}

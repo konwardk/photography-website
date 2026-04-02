@@ -6,8 +6,8 @@ export default function Books({ books }: { books: any }) {
         <PortfolioLayout>
             <Head title="Book Reviews" />
 
-            <div className="pt-16 pb-16 px-5 md:px-12 w-full max-w-[100rem] mx-auto min-h-screen">
-                <div className="flex flex-col items-center justify-center">
+            <div className="mx-auto min-h-screen w-full max-w-[100rem] px-5 pt-16 md:px-12">
+                <div className="mb-20 flex flex-col items-center justify-center">
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
                         Book Reviews
                     </h1>
@@ -24,7 +24,7 @@ export default function Books({ books }: { books: any }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                         {books.data.map((book: any) => (
                             <Link href={`/reviews/${book.id}`} key={book.id} className="group flex flex-col gap-5 h-full hover:-translate-y-2 transition-transform duration-500 ease-in-out cursor-pointer">
-                                <div className="w-full aspect-[3/4] rounded-2xl overflow-hidden relative flex items-center justify-center bg-white/5 p-6 border border-white/5">
+                                <div className="w-full overflow-hidden relative flex items-center justify-center bg-white/5 p-6 border border-white/5">
                                     {book.cover_image ? (
                                         <img
                                             src={`/storage/${book.cover_image}`}
