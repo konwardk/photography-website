@@ -8,7 +8,7 @@ const IMAGES = [
     '/images/bird2.jpg',
     '/images/elephant.jpg',
     '/images/flower.jpg',
-    '/images/rhino1.jpg'
+    '/images/rhino1.jpg',
 ];
 
 export default function Contact() {
@@ -16,7 +16,9 @@ export default function Contact() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % IMAGES.length);
+            setCurrentImageIndex(
+                (prevIndex) => (prevIndex + 1) % IMAGES.length,
+            );
         }, 3000); // Change image every 5 seconds
 
         return () => clearInterval(interval);
@@ -25,14 +27,15 @@ export default function Contact() {
     return (
         <PortfolioLayout>
             <Head title="Contact | K K Dwivedi" />
-            <section className="py-24 pt-44 bg-black min-h-[100dvh] flex flex-col items-center">
+            <section className="flex min-h-[100dvh] flex-col items-center bg-black py-24 pt-44">
                 <div className="w-full max-w-5xl px-6 lg:px-12">
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-12 text-center">Contact</h1>
+                    <h1 className="mb-12 text-center text-4xl font-bold tracking-tight text-white md:text-5xl">
+                        Contact
+                    </h1>
 
-                    <div className="bg-zinc-900 rounded-[2rem] p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full">
-
+                    <div className="grid w-full grid-cols-1 gap-8 rounded-[2rem] bg-zinc-900 p-8 md:grid-cols-2 md:gap-12 md:p-12">
                         {/* Form Side */}
-                        <div className="flex flex-col justify-center">
+                        {/* <div className="flex flex-col justify-center">
                             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Let's connect</h2>
 
                             <form className="space-y-4">
@@ -74,24 +77,55 @@ export default function Contact() {
                                     Send
                                 </button>
                             </form>
+                        </div> */}
+
+                        {/* Contact Info Side */}
+                        <div className="flex flex-col justify-center">
+                            <h2 className="mb-6 text-2xl font-bold text-white md:text-3xl">
+                                Let's connect
+                            </h2>
+
+                            <p className="mb-6 text-sm leading-relaxed text-neutral-400 md:text-base">
+                                Whether you have a project in mind, want to
+                                collaborate, or simply wish to get in touch,
+                                feel free to reach out. I’m always open to
+                                meaningful conversations and creative
+                                opportunities.
+                            </p>
+
+                            {/* Email */}
+                            <div className="rounded-xl border border-zinc-800 bg-black/30 p-4">
+                                <p className="mb-2 text-xs tracking-widest text-neutral-500 uppercase">
+                                    Email
+                                </p>
+
+                                <a
+                                    href="mailto:your@email.com"
+                                    className="text-lg font-semibold break-all text-white transition-colors hover:text-neutral-300 md:text-xl"
+                                >
+                                    your@email.com
+                                </a>
+                            </div>
                         </div>
 
                         {/* Image Side */}
-                        <div className="h-full w-full min-h-[400px] md:min-h-full rounded-2xl overflow-hidden relative">
+                        <div className="relative h-full min-h-[400px] w-full overflow-hidden rounded-2xl md:min-h-full">
                             {IMAGES.map((src, index) => (
                                 <img
                                     key={src}
                                     src={src}
                                     alt={`Gallery image ${index + 1}`}
-                                    className={`object-cover w-full h-full absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                                        }`}
+                                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+                                        index === currentImageIndex
+                                            ? 'opacity-100'
+                                            : 'opacity-0'
+                                    }`}
                                     draggable={false}
                                     onContextMenu={(e) => e.preventDefault()}
                                 />
                             ))}
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-80 z-10 pointer-events-none"></div>
+                            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-80"></div>
                         </div>
-
                     </div>
                 </div>
             </section>
