@@ -65,13 +65,13 @@ export default function Portfolio({ categories, photos }: { categories: any[]; p
             <Head title="Portfolio | K K Dwivedi" />
 
             {/* Portfolio Grid Section */}
-            <section className="pt-16 px-5 md:px-12 w-full max-w-[100rem] mx-auto min-h-screen">
+            <section className="pt-26 px-5 md:px-12 w-full max-w-[100rem] mx-auto min-h-screen">
                 <div className="container mx-auto px-6 lg:px-12">
                     <h2 className="text-4xl md:text-5xl font-bold text-center tracking-tight text-white shrink-0">Portfolio</h2>
                     <div className="flex flex-col md:flex-row justify-center items-baseline md:items-center mb-16 gap-8">
 
                         {/* Dropdown Filters mapped dynamically from database */}
-                        <div className="flex items-center my-3 gap-3 overflow-x-auto pb-4 md:pb-0 w-full md:w-auto custom-scrollbar">
+                        <div className="flex items-center my-3 gap-3 overflow-x-auto pt-4 md:pb-0 w-full md:w-auto custom-scrollbar">
                             <button
                                 onClick={() => setSelectedCategory('All')}
                                 className={`whitespace-nowrap px-6 py-2 rounded-full text-sm font-semibold transition-colors border ${selectedCategory === 'All' ? 'bg-[#E0E0E0] text-black border-[#E0E0E0]' : 'bg-black text-neutral-400 border-neutral-800 hover:border-neutral-500'}`}

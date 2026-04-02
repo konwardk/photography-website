@@ -6,7 +6,7 @@ export default function Books({ books }: { books: any }) {
         <PortfolioLayout>
             <Head title="Book Reviews" />
 
-            <div className="mx-auto min-h-screen w-full max-w-[100rem] px-5 pt-16 md:px-12">
+            <div className="mx-auto min-h-screen w-full max-w-[100rem] px-5 pt-26 md:px-12">
                 <div className="mb-20 flex flex-col items-center justify-center">
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
                         Book Reviews

@@ -27,7 +27,7 @@ export default function Contact() {
     return (
         <PortfolioLayout>
             <Head title="Contact | K K Dwivedi" />
-            <section className="flex min-h-[100dvh] flex-col items-center bg-black py-24 pt-44">
+            <section className="flex min-h-[100dvh] flex-col items-center bg-black py-24 pt-26">
                 <div className="w-full max-w-5xl px-6 lg:px-12">
                     <h1 className="mb-12 text-center text-4xl font-bold tracking-tight text-white md:text-5xl">
                         Contact

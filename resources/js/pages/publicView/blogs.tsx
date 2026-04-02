@@ -6,7 +6,7 @@ export default function Blogs({ blogs }: { blogs: any }) {
         <PortfolioLayout>
             <Head title="Journal & Blog" />
 
-            <div className="mx-auto min-h-screen w-full max-w-[100rem] px-5 pt-16 md:px-12">
+            <div className="mx-auto min-h-screen w-full max-w-[100rem] px-5 pt-26 md:px-12">
                 <div className="mb-20 flex flex-col items-center justify-center">
                     <h1 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
                         Blogs
