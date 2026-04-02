@@ -26,6 +26,8 @@ export default function BookShow({ book }: { book: any }) {
                                     src={`/storage/${book.cover_image}`}
                                     alt={book.book_name}
                                     className="w-full h-auto object-contain block transition-transform duration-700 ease-out group-hover:scale-105"
+                                    draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
                                 />
                                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none"></div>
                             </div>

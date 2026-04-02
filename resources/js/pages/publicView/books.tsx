@@ -30,6 +30,8 @@ export default function Books({ books }: { books: any }) {
                                             src={`/storage/${book.cover_image}`}
                                             alt={book.book_name}
                                             className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                                            draggable={false}
+                                            onContextMenu={(e) => e.preventDefault()}
                                         />
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center">

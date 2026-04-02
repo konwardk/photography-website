@@ -70,6 +70,8 @@ export default function Hero({ photos = [] }: { photos?: any[] }) {
                         alt={image.alt}
                         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
                             }`}
+                        draggable={false}
+                        onContextMenu={(e) => e.preventDefault()}
                     />
                 ))}
             </div>
@@ -104,6 +106,8 @@ export default function Hero({ photos = [] }: { photos?: any[] }) {
                                     alt={`Thumb ${index + 1}`}
                                     className={`w-full h-full object-cover transition-all duration-700 ${index === currentIndex ? 'scale-105 filter-none' : 'grayscale group-hover:grayscale-0 group-hover:scale-105'
                                         }`}
+                                    draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
                                 />
                                 {index === currentIndex && (
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>

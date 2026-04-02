@@ -55,6 +55,8 @@ export default function FavouritePhotos({ photos }: { photos: any[] }) {
                                 src={`/storage/${photo.path}`}
                                 alt={`Favourite photo ${index + 1}`}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                                draggable={false}
+                                onContextMenu={(e) => e.preventDefault()}
                             />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center gap-2">
                                 <span className="text-white font-bold tracking-widest uppercase text-sm border-b border-white pb-1">View Piece</span>
@@ -100,6 +102,8 @@ export default function FavouritePhotos({ photos }: { photos: any[] }) {
                             alt={`Gallery Modal Full View`}
                             className="max-w-full max-h-full object-contain select-none shadow-2xl cursor-default"
                             onClick={(e) => e.stopPropagation()}
+                            draggable={false}
+                            onContextMenu={(e) => e.preventDefault()}
                         />
                     </div>
 

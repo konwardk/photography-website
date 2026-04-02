@@ -85,6 +85,8 @@ export default function Contact() {
                                     alt={`Gallery image ${index + 1}`}
                                     className={`object-cover w-full h-full absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
                                         }`}
+                                    draggable={false}
+                                    onContextMenu={(e) => e.preventDefault()}
                                 />
                             ))}
                             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-80 z-10 pointer-events-none"></div>
