@@ -10,7 +10,7 @@ export default function Logo({ href = '/', className = '' }: LogoProps) {
     return (
         <Link href={href} className={`flex items-center gap-1 md:gap-2 group transition-all duration-300 ${className}`}>
             <div className="flex items-center justify-center">
-                <img src="/images/logo.svg" alt="Logo" className="w-full h-full object-contain size-22 m-2"/>
+                <img src="/images/logo.png" alt="Logo" className="w-full h-full object-contain size-22 m-2"/>
             </div>
         </Link>
     );
